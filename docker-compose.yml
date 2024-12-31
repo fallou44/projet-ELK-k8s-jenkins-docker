@@ -1,0 +1,45 @@
+services:
+  elasticsearch:
+    image: elasticsearch:7.17.26
+    environment:
+      - discovery.type=single-node
+    ports:
+      - "9200:9200"
+    networks:
+      - elastic-net
+
+  logstash:
+    image: logstash:7.17.26
+    ports:
+      - "5044:5044"
+    networks:
+      - elastic-net
+    volumes:
+      - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+
+  kibana:
+    image: kibana:7.17.26
+    ports:
+      - "5601:5601"
+    networks:
+      - elastic-net
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    networks:
+      - elastic-net
+
+  node-app:
+    build: .
+    ports:
+      - "3000:3000"
+    networks:
+      - elastic-net
+
+networks:
+  elastic-net:
+    driver: bridge
