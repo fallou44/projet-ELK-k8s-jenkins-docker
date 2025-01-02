@@ -7,6 +7,6 @@ spec:
   ports:
   - port: 3000
     targetPort: 3000
-    nodePort: 30001  # Port externe pour accéder au service
+    nodePort: 30003  # Nouveau port externe
   selector:
     app: my-node-app

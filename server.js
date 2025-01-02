@@ -7,6 +7,9 @@ const PORT = 3000;
 
 app.use(bodyParser.json());
 
+app.get('/', (req, res) => {
+    res.send('Welcome to the logging service!');
+});
 // Endpoint pour envoyer un message générique à Logstash
 app.post('/messages', async (req, res) => {
     const { message } = req.body;
