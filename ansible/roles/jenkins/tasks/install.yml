@@ -1,0 +1,16 @@
+---
+- name: Ajouter la clé Jenkins
+  apt_key:
+    url: https://pkg.jenkins.io/debian/jenkins.io.key
+    state: present
+
+- name: Ajouter le repository Jenkins
+  apt_repository:
+    repo: deb http://pkg.jenkins.io/debian/ stable main
+    state: present
+
+- name: Installer Jenkins
+  apt:
+    name: jenkins
+    state: present
+    update_cache: yes

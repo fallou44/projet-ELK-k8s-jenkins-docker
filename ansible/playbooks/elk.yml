@@ -1,0 +1,16 @@
+---
+- hosts: elk_hosts
+  become: yes
+  tasks:
+    - name: Installer Elasticsearch
+      apt:
+        name: elasticsearch
+        state: present
+    - name: Installer Logstash
+      apt:
+        name: logstash
+        state: present
+    - name: Installer Kibana
+      apt:
+        name: kibana
+        state: present

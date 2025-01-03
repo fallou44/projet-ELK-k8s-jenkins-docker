@@ -1,0 +1,10 @@
+---
+- name: Installer Kubernetes
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - kubelet
+    - kubeadm
+    - kubectl
+    - kubernetes-cni

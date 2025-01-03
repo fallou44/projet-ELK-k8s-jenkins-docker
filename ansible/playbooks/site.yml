@@ -1,0 +1,8 @@
+---
+- name: Déploiement complet
+  hosts: all
+  become: yes
+  roles:
+    - docker
+    - kubernetes
+    - jenkins
