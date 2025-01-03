@@ -1,0 +1,9 @@
+---
+- src: geerlingguy.docker
+  version: 2.4.3
+- name: geerlingguy.kubernetes
+  version: 4.0.1
+- src: geerlingguy.jenkins
+  version: 1.2.8
+- src: elastic.elasticsearch
+  version: 7.1.1
